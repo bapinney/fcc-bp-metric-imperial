@@ -31,6 +31,7 @@ function ConvertHandler() {
       var num = parseFloat(input);
       var unit = String(input.replace(num,"")).trim();
       console.log("gu1 is " + unit);
+      if (this.getReturnUnit(unit) === null) { return "invalid Unit";}
       return unit;
     }
     else {
@@ -40,6 +41,7 @@ function ConvertHandler() {
       var num = Number(split[0]) + "/" + Number.parseFloat(split[1]);
       var unit = String(input.replace(num,"")).trim();
       console.log("gu2 is returning " + unit);
+      if (this.getReturnUnit(unit) === null) { return "invalid Unit";}
       return unit;
     }
   };

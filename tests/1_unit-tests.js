@@ -50,10 +50,12 @@ suite('Unit Tests', function(){
       done();
     });
     
+    //1 Should be used as default if a number is missing
     test('No Numerical Input', function(done) {
       let input = 'km';
-      
-      //done();
+      let result = convertHandler.getNum(input);
+      assert.equal(result, 1);
+      done();
     }); 
     
   });
