@@ -16,10 +16,10 @@ function ConvertHandler() {
       return result;
     }
     else {
-      if ((input.match(/\//g) || []).length > 1) {
+      if ((input.match(/\//g || []).length > 1)) {
         return "invalid number";
       }
-      if (Number.isNaN(Number(input))) { return "invalid number";}
+      //if (Number.isNaN(Number(input))) { return "invalid number";}
       var split = input.split("/");
       console.log("getNum is returning " + Number(split[0]) / Number.parseFloat(split[1]));
       return Number(split[0]) / Number.parseFloat(split[1]);
@@ -106,6 +106,14 @@ function ConvertHandler() {
       case "miles":
         var result = initNum * miToKm;
         return Number(Math.round(result + 'e' + 5) + 'e-' + 5);
+      case "lbs":
+      case "pounds":
+        var result = initNum * lbsToKg;
+        return Number(Math.round(result + 'e' + 5) + 'e-' + 5);
+      case "kg":
+      case "kilograms":
+        var result = initNum/lbsToKg;
+        return Number(Math.round(result + 'e' + 5) + 'e-' +5);
       case "km":
       case "kilometers":
         var result = initNum/miToKm;
