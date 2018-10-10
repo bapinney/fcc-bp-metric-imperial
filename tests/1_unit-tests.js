@@ -65,7 +65,7 @@ suite('Unit Tests', function(){
     test('For Each Valid Unit Inputs', function(done) {
       var input = ['gal','l','mi','km','lbs','kg','GAL','L','MI','KM','LBS','KG'];
       input.forEach(function(ele) {
-        //assert
+        assert.isNotNull(convertHandler.getReturnUnit(ele));
       });
       done();
     });
@@ -110,33 +110,48 @@ suite('Unit Tests', function(){
     test('Gal to L', function(done) {
       var input = [5, 'gal'];
       var expected = 18.9271;
-      assert.approximately(convertHandler.convert(input[0],input[1]),expected,0.1); //0.1 tolerance
+      assert.approximately(convertHandler.convert(input[0],input[1]),expected,0.1);
       done();
     });
     
     test('L to Gal', function(done) {
-      
-      //done();
+      let input = [7, 'L'];
+      let expected = 1.84921;
+      let result = convertHandler.convert(input[0], input[1]);
+      assert.approximately(result, expected, 0.1);
+      done();
     });
     
     test('Mi to Km', function(done) {
-      
-      //done();
+      let input = [10000, 'Mi'];
+      let expected = 16093.44;
+      let result = convertHandler.convert(input[0], input[1]);
+      assert.approximately(result, expected, 0.1);
+      done();
     });
     
     test('Km to Mi', function(done) {
-      
-      //done();
+      let input = [100, 'km'];
+      let expected = 62.13727;
+      let result = convertHandler.convert(input[0], input[1]);
+      assert.approximately(result, expected, 0.1);
+      done();
     });
     
     test('Lbs to Kg', function(done) {
-      
-      //done();
+      let input = [40, 'kg'];
+      let expected = 88.18498;
+      let result = convertHandler.convert(input[0], input[1]);
+      assert.approximately(result, expected, 0.1);
+      done();
     });
     
     test('Kg to Lbs', function(done) {
-      
-      //done();
+      let input = [40, 'kg'];
+      let expected = 132.27747;
+      let result = convertHandler.convert(input[0], input[1]);
+      assert.approximately(result, expected, 0.1);
+      done();
     });
     
   });
